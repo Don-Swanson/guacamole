@@ -18,8 +18,8 @@ commands:
           #echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-server/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
           echo 'export BRANCH=1.6.0' >> "$BASH_ENV"
       - run: 
-          #git clone --branch=staging/1.6.0 "https://github.com/apache/guacamole-server" .
-          git clone "https://github.com/apache/guacamole-server" .
+          git clone --branch=staging/1.6.0 "https://github.com/apache/guacamole-server" .
+          #git clone "https://github.com/apache/guacamole-server" .
       #- run:
       #    name: Temporary Patch to fix missing openssl
       #    command: | 
@@ -58,8 +58,8 @@ commands:
           #echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-client/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
           echo 'export BRANCH=1.6.0' >> "$BASH_ENV"
       - run: 
-          #git clone --branch=staging/1.6.0 "https://github.com/apache/guacamole-client" .
-          git clone "https://github.com/apache/guacamole-client" .
+          git clone --branch=staging/1.6.0 "https://github.com/apache/guacamole-client" .
+          #git clone "https://github.com/apache/guacamole-client" .
       #- run:
       #    name: Temporary Patch to fix build on arm64
       #    environment:

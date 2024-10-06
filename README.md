@@ -12,25 +12,15 @@ Supported Linux OS: amd64, arm64
 These containers are built straight from the Apache source:   
 git checkout https://github.com/apache/guacamole-client   
 git checkout https://github.com/apache/guacamole-server   
+The only change from the source is to disable DWITH_SSE2 on ARM64 builds to fix a bug with Free RDP on ARM.  
 
 ## Startup
 See the docer-compose.yml for a sample compose file and below for the options
 
 ## Extensions
-Extensions can be found here for the current release: https://guacamole.apache.org/releases/ and added to `/opt/guacamole/extensions` of the guacamole client.   
-Note, it can be confusing how to do this. One such option is to start the guacamole container, then do a `docker cp guacamole_test:/opt/guacamole/extensions/ ./`, then you can simply copy the jar file from the respective sub folder directly into the extensions folder that you mapped.
+Extensions can be found here for the current release: https://guacamole.apache.org/releases/ and instructions for how to enable specific extensions can be found here: https://guacamole.apache.org/doc/gug/guacamole-docker.html 
 
-**Extension List:**
-- auth-duo
-- auth-header
-- auth-jdbc
-- auth-json
-- auth-ldap
-- auth-quickconnect
-- auth-sso
-- auth-totp
-- vault
-- history-recording-storage
+For instance, for TOTP, you would add an environment variable of `TOTP_ENABLED` and set it to true
 
 
 ## Initial Setup

@@ -38,14 +38,13 @@ services:
       POSTGRES_PASSWORD: '<POSTGRES_PASSWORD>'
       POSTGRES_USERNAME: guac_user
       POSTGRESQL_AUTO_CREATE_ACCOUNTS: true
+      #TOTP_ENABLED: true
       TZ: America/Chicago
     image: donswanson/guacamole
     networks:
       - guacnetwork
     volumes:
       - ./recordings:/recordings:rw
-      #- /docker/guac_build/extensions:/opt/guacamole/extensions:rw
-      #- /docker/guac_build/lib:/opt/guacamole/lib:rw
     ports:
       - 8080:8080
     restart: always

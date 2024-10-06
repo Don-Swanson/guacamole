@@ -15,15 +15,14 @@ commands:
         type: string
     steps:
       - run: 
+          #Temp Fix until 1.6.0 is released
           #echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-server/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
           echo 'export BRANCH=1.6.0' >> "$BASH_ENV"
       - run: 
+          #Temp Fix until 1.6.0 is released
           git clone --branch=staging/1.6.0 "https://github.com/apache/guacamole-server" .
           #git clone "https://github.com/apache/guacamole-server" .
-      #- run:
-      #    name: Temporary Patch to fix missing openssl
-      #    command: | 
-      #      sed -i "s/ALPINE_BASE_IMAGE=latest/ALPINE_BASE_IMAGE=3.18/" Dockerfile
+
       - run:
           name: Temporary Patch to fix FREE RDP OPS on arm64
           environment:
@@ -55,24 +54,13 @@ commands:
         type: string
     steps:
       - run: 
+          #Temp Fix until 1.6.0 is released
           #echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-client/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
           echo 'export BRANCH=1.6.0' >> "$BASH_ENV"
       - run: 
+          #Temp Fix until 1.6.0 is released
           git clone --branch=staging/1.6.0 "https://github.com/apache/guacamole-client" .
           #git clone "https://github.com/apache/guacamole-client" .
-      #- run:
-      #    name: Temporary Patch to fix build on arm64
-      #    environment:
-      #      ARCH: <<parameters.arch>>
-      #    command: | 
-      #      if [ $ARCH = "arm64" ]; then
-      #        sed -i "s/TOMCAT_VERSION=8.5/TOMCAT_VERSION=9/" Dockerfile
-      #        sed -i "s/TOMCAT_JRE=jdk8/TOMCAT_JRE=jdk21/" Dockerfile
-      #        sed -i "s/3-eclipse-temurin-8-focal/3-eclipse-temurin-8-focal/" Dockerfile
-      #        sed -i "s/-DskipTests=false/-DskipTests=true/" Dockerfile
-      #      else
-      #        echo "pass"
-      #      fi
       - run:
           name: Build Docker image
           command: |
@@ -117,6 +105,7 @@ jobs:
       - image: cimg/base:current
     steps:
       - run: 
+          #Temp Fix until 1.6.0 is released
           #echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-client/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
           echo 'export BRANCH=1.6.0' >> "$BASH_ENV"
       - run:

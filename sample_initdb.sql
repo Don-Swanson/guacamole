@@ -1,5 +1,3 @@
--- This is a sample form guacamole 1.5.5 initdb.sql for those running non-x86_64 based system with no other way to get it from the setup.sh script
---
 --
 -- Licensed to the Apache Software Foundation (ASF) under one
 -- or more contributor license agreements.  See the NOTICE file
@@ -58,6 +56,7 @@ CREATE TYPE guacamole_system_permission_type AS ENUM(
     'CREATE_SHARING_PROFILE',
     'CREATE_USER',
     'CREATE_USER_GROUP',
+    'AUDIT',
     'ADMINISTER'
 );
 

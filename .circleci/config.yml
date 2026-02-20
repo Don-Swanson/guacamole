@@ -15,13 +15,9 @@ commands:
         type: string
     steps:
       - run: 
-          #Temp Fix until 1.6.0 is released
-          #echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-server/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
-          echo 'export BRANCH=1.6.0' >> "$BASH_ENV"
+          echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-server/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
       - run: 
-          #Temp Fix until 1.6.0 is released
-          git clone --branch=staging/1.6.0 "https://github.com/apache/guacamole-server" .
-          #git clone "https://github.com/apache/guacamole-server" .
+          git clone "https://github.com/apache/guacamole-server" .
 
       - run:
           name: Temporary Patch to fix FREE RDP OPS on arm64
@@ -54,13 +50,9 @@ commands:
         type: string
     steps:
       - run: 
-          #Temp Fix until 1.6.0 is released
-          #echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-client/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
-          echo 'export BRANCH=1.6.0' >> "$BASH_ENV"
+          echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-client/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
       - run: 
-          #Temp Fix until 1.6.0 is released
-          git clone --branch=staging/1.6.0 "https://github.com/apache/guacamole-client" .
-          #git clone "https://github.com/apache/guacamole-client" .
+          git clone "https://github.com/apache/guacamole-client" .
       - run:
           name: Build Docker image
           command: |
@@ -105,9 +97,7 @@ jobs:
       - image: cimg/base:current
     steps:
       - run: 
-          #Temp Fix until 1.6.0 is released
-          #echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-client/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
-          echo 'export BRANCH=1.6.0' >> "$BASH_ENV"
+          echo 'export BRANCH=$(curl "https://api.github.com/repos/apache/guacamole-client/tags" | jq -r ".[0].name")' >> "$BASH_ENV"
       - run:
           name: Publish manifests
           command: |
